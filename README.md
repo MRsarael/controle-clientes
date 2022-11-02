@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-API de um CRUD de despesas pessoais com autenticação via JWT.
+API de um CRUD de controle de clientes e placas veiculares.
 
 ## Passos para configurar o projeto para teste
 
@@ -10,25 +10,21 @@ API de um CRUD de despesas pessoais com autenticação via JWT.
 git clone https://github.com/MRsarael/api-despesas.git
 composer install
 php artisan key:generate
-php artisan jwt:secret
 composer dump-autoload
-OBS: Será necessário criar um banco de dados Mysql e configurar o acesso no arquivo .env
+OBS: Será necessário criar um banco de dados 'clientes' e configurar o acesso no arquivo .env
 php artisan migrate
 ```
 
 ## Rotas disponíveis
 
-| Rota                  | Método    | Descrição                            |
-| --------------------- | --------- | ------------------------------------ |
-|`/user/login`          | `POST`    | Login de usuário                     |
-|`/user/new`            | `POST`    | Novo usuário                         |
-|`/user/me`             | `POST`    | Retorna dados do usuário logado      |
-|`/user/logout`         | `POST`    | Logout de usuário                    |
-|`/expenses`            | `GET`     | Lista de despesas do usuário logado  |
-|`/expenses`            | `POST`    | Cadastro de despesa                  |
-|`/expenses`            | `PUT`     | Edição de despesa                    |
-|`/expenses/{expenseId}`| `GET`     | Lista de despesa específica          |
-|`/expenses/{expenseId}`| `DELETE`  | Exclusão de despesa                  |
+| Rota                   | Método    | Descrição                             |
+| ---------------------- | --------- | ------------------------------------- |
+|`/cliente/`             | `GET`     | Lista todos os clientes               |
+|`/cliente/`             | `POST`    | Cadastra um cliente                   |
+|`/cliente/{id}`         | `GET`     | Consulta cliente específico           |
+|`/cliente/{id}`         | `PUT`     | Atualiza dados de cliente específico  |
+|`/cliente/{id}`         | `DELETE`  | Remove um cliente                     |
+|`/final-placa/{numero}` | `GET`     | Consulta clientes pelo final da placa |
 
 ## Link collection Postman
 
