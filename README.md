@@ -28,4 +28,4 @@ php artisan migrate
 
 ## Link collection Postman
 
-<p>https://www.postman.com/collections/38db7d75059b055d9577</p>
+<p>https://www.getpostman.com/collections/b7604e48dbcbf3ce6995</p>
