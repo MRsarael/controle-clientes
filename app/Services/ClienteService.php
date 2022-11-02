@@ -39,6 +39,7 @@ class ClienteService
     {
         $dados['cpf'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['cpf']);
         $dados['placa'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['placa']);
+        $dados['telefone'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['telefone']);
         $cliente = $this->clienteRepository->create($dados);
 
         return [
@@ -55,6 +56,7 @@ class ClienteService
     {
         $dados['cpf'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['cpf']);
         $dados['placa'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['placa']);
+        $dados['telefone'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['telefone']);
         $cliente = $this->clienteRepository->update($id, $dados);
 
         return [
