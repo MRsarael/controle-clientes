@@ -7,7 +7,7 @@ API de um CRUD de controle de clientes e placas veiculares.
 ## Passos para configurar o projeto para teste
 
 ```bash
-git clone https://github.com/MRsarael/api-despesas.git
+git clone https://github.com/MRsarael/controle-clientes.git
 composer install
 php artisan key:generate
 composer dump-autoload
