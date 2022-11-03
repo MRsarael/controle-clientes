@@ -4,11 +4,12 @@ namespace App\Repositories;
 
 use App\Repositories\ClienteRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use App\Cliente;
 
 class ClienteRepository implements ClienteRepositoryInterface
 {
-    private $model;
+    private Model $model;
 
     public function __construct(Cliente $Cliente)
     {

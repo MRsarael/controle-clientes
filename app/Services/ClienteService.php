@@ -8,7 +8,7 @@ use App\Cliente;
 
 class ClienteService
 {
-    private $clienteRepository;
+    private ClienteRepositoryInterface $clienteRepository;
 
     public function __construct(ClienteRepositoryInterface $clienteRepositoryInterface)
     {

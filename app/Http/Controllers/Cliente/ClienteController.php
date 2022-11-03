@@ -12,7 +12,7 @@ use App\Http\Form\Cliente\UpdateClienteFormRequest;
 
 class ClienteController extends \App\Http\Controllers\Controller
 {
-    private $service;
+    private ClienteService $service;
 
     public function __construct(ClienteService $service)
     {
