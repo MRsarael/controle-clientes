@@ -66,14 +66,15 @@ class ClienteRepository implements ClienteRepositoryInterface
 
     private function validarCadastroCliente(array $dados) : void
     {
-        $verificacao = $this->model->where('cpf', $dados['cpf'])->orWhere('placa', $dados['placa'])->get();
+        // $verificacao = $this->model->where('cpf', $dados['cpf'])->orWhere('placa', $dados['placa'])->get();
+        $verificacao = $this->model->where('cpf', $dados['cpf'])->get();
 
         if($verificacao->count()) {
             foreach ($verificacao as $key => $value) {
-                if($value->cpf == $dados['cpf'])
-                    throw new \Exception("Já existe um cliente cadastrado com o CPF {$dados['cpf']}", 401);
+                // if($value->cpf == $dados['cpf'])
+                //     throw new \Exception("Já existe um cliente cadastrado com o CPF {$dados['cpf']}", 401);
                 if($value->placa == $dados['placa'])
-                    throw new \Exception("Já existe um veículo cadastrado com a placa {$dados['placa']}", 401);
+                    throw new \Exception("O cliente já possui um veículo cadastrado com a placa {$dados['placa']}", 401);
             }
         }
     }
