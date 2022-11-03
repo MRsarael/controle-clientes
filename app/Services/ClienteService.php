@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Crypt;
 use App\Repositories\ClienteRepositoryInterface;
+use App\Cliente;
 
 class ClienteService
 {
@@ -37,36 +38,16 @@ class ClienteService
 
     public function create(array $dados) : array
     {
-        $dados['cpf'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['cpf']);
-        $dados['placa'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['placa']);
-        $dados['telefone'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['telefone']);
+        $dados = $this->trataParametrosData($dados);
         $cliente = $this->clienteRepository->create($dados);
-
-        return [
-            'id'           => Crypt::encryptString($cliente->id),
-            'nome'         => $cliente->nome,
-            'telefone'     => $cliente->telefone,
-            'cpf'          => $cliente->cpf,
-            'placa'        => $cliente->placa,
-            'dataCadastro' => \Carbon\Carbon::parse($cliente->created_at)->format('Y-m-d h:i:s')
-        ];
+        return $this->trataRetornoDadosCliete($cliente);
     }
 
     public function update(string $id, array $dados) : array
     {
-        $dados['cpf'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['cpf']);
-        $dados['placa'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['placa']);
-        $dados['telefone'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['telefone']);
+        $dados = $this->trataParametrosData($dados);
         $cliente = $this->clienteRepository->update($id, $dados);
-
-        return [
-            'id'           => Crypt::encryptString($cliente->id),
-            'nome'         => $cliente->nome,
-            'telefone'     => $cliente->telefone,
-            'cpf'          => $cliente->cpf,
-            'placa'        => $cliente->placa,
-            'dataCadastro' => \Carbon\Carbon::parse($cliente->created_at)->format('Y-m-d h:i:s')
-        ];
+        return $this->trataRetornoDadosCliete($cliente);
     }
 
     public function delete(string $id) : void
@@ -92,5 +73,25 @@ class ClienteService
         }
 
         return $response;
+    }
+
+    private function trataParametrosData(array $dados) : array
+    {
+        $dados['cpf'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['cpf']);
+        $dados['placa'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['placa']);
+        $dados['telefone'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['telefone']);
+        return $dados;
+    }
+
+    private function trataRetornoDadosCliete(Cliente $cliente) : array
+    {
+        return [
+            'id'           => Crypt::encryptString($cliente->id),
+            'nome'         => $cliente->nome,
+            'telefone'     => $cliente->telefone,
+            'cpf'          => $cliente->cpf,
+            'placa'        => $cliente->placa,
+            'dataCadastro' => \Carbon\Carbon::parse($cliente->created_at)->format('Y-m-d h:i:s')
+        ];
     }
 }
