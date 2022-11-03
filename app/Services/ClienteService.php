@@ -77,9 +77,9 @@ class ClienteService
 
     private function trataParametrosData(array $dados) : array
     {
-        $dados['cpf'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['cpf']);
-        $dados['placa'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['placa']);
-        $dados['telefone'] = preg_replace('/[^A-Za-z0-9\-]/', '', $dados['telefone']);
+        $dados['cpf'] = preg_replace('/[^0-9]/', '', $dados['cpf']);
+        $dados['placa'] = preg_replace('/[^A-Za-z0-9]/', '', $dados['placa']);
+        $dados['telefone'] = preg_replace('/[^0-9]/', '', $dados['telefone']);
         return $dados;
     }
 
