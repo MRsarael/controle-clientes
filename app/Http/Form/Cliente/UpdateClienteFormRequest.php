@@ -23,9 +23,9 @@ class UpdateClienteFormRequest extends FormRequest
     {
         return [
             'nome'     => ['required', 'string', 'max:200'],
-            'telefone' => ['required', 'string', 'max:11'],
-            'cpf'      => ['required', 'string', 'max:11'],
-            'placa'    => ['required', 'string', 'max:7']
+            'telefone' => ['required', 'string', 'max:15'],
+            'cpf'      => ['required', 'string', 'max:14'],
+            'placa'    => ['required', 'string', 'max:8']
         ];
     }
 }
