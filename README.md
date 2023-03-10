@@ -25,5 +25,3 @@ php artisan migrate
 |`/cliente/{id}`         | `PUT`     | Atualiza dados de cliente específico  |
 |`/cliente/{id}`         | `DELETE`  | Remove um cliente                     |
 |`/final-placa/{numero}` | `GET`     | Consulta clientes pelo final da placa |
-
-## Link collection Postman
