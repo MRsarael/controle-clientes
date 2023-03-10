@@ -27,5 +27,3 @@ php artisan migrate
 |`/final-placa/{numero}` | `GET`     | Consulta clientes pelo final da placa |
 
 ## Link collection Postman
-
-<p>https://www.getpostman.com/collections/b7604e48dbcbf3ce6995</p>
